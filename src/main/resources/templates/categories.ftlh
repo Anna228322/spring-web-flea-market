@@ -6,7 +6,7 @@
             ${category_index + 1}. ${category.getName()}
         </a><br/>
     <#else>
-        Сипсок категорий пуст
+        Список категорий пуст
     </#list>
     <div>
         <a href="/category/add">Добавить категорию</a>

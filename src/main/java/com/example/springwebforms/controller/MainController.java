@@ -18,19 +18,9 @@ public class MainController {
     @Autowired
     private EventLogger eventLogger;
 
-    @Autowired
-    private FormRepo formRepo;
-
-    @Autowired
-    private AnswerRepo answerRepo;
-
     @GetMapping
     public String formList(Map<String, Object> model, HttpServletRequest request) {
         eventLogger.logEvent(Event.level(EventType.INFO).that(request.getRemoteHost() + " saw all forms").now());
-
-        var forms = formRepo.findAll();
-        forms = forms.stream().filter(Form::isActive).collect(Collectors.toList());
-        model.put("forms", forms);
 
         return "main";
     }

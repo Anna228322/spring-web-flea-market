@@ -29,7 +29,11 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String registerUser(User user, Map<String, Object> model, HttpServletRequest request) {
+    public String registerUser(
+        User user,
+        Map<String, Object> model,
+        HttpServletRequest request
+    ) {
         Event event = Event.level(EventType.INFO).that(request.getRemoteHost() + " made request to register new user").now();
         eventLogger.logEvent(event);
 
